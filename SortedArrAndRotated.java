@@ -1,31 +1,27 @@
 import java.util.Scanner;
 
 public class SortedArrAndRotated {
-    public static void rotate(int arr[], int k) {
+    public static boolean rotate(int arr[]) {
+        int countBreaks = 0;
         int n = arr.length;
-        k = k % n;
-        int[] rotatedArr = new int[n];
         for (int i = 0; i < n; i++) {
-            rotatedArr[(i + k) % n] = arr[i];
+            if (arr[i] > arr[(i + 1) % n]) {
+                countBreaks++;
+            }
         }
-        System.out.print("Rotated Array: ");
-        for (int num : rotatedArr) {
-            System.out.print(num + " ");
-        }
+        return countBreaks <= 1;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the length of array: ");
         int n = sc.nextInt();
-        System.out.print("Enter the size of array to rotated: ");
-        int k = sc.nextInt();
         int arr[] = new int[n];
         System.out.print("Enter the elements in the array below:\n");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
         }
-        rotate(arr, k);
+        System.out.println(rotate(arr));
         sc.close();
     }
 }
