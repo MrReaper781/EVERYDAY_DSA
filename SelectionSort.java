@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
-public class BubbleSort {
-    public static void sortBubble(int arr[]) {
-        int swaps = 0;
+public class SelectionSort {
+    public static void sortSelection(int arr[]) {
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    swaps++;
+            int minPos = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minPos] > arr[j]) {
+                    minPos = j;
                 }
             }
+            // swap
+            int temp = arr[minPos];
+            arr[minPos] = arr[i];
+            arr[i] = temp;
         }
-        System.out.print("Total swaps: " + swaps + "\n");
     }
 
     public static void printArr(int arr[]) {
@@ -31,7 +31,7 @@ public class BubbleSort {
         }
         printArr(arr);
         System.out.println();
-        sortBubble(arr);
+        sortSelection(arr);
         printArr(arr);
         sc.close();
     }
