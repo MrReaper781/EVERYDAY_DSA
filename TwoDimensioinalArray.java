@@ -30,7 +30,9 @@ public class TwoDimensioinalArray {
             }
             System.out.println();
         }
-        search(matrix, 5);
+        System.out.println("Enter the key: ");
+        int key = sc.nextInt();
+        search(matrix, key);
         sc.close();
     }
 }
