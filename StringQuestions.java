@@ -32,6 +32,23 @@ public class StringQuestions {
         return (float) Math.sqrt(x2 + y2);
     }
 
+    public static void substring(String str, int si, int ei) {
+        for (int i = si; i < ei; i++) {
+            System.out.print(str.charAt(i));
+        }
+    }
+
+    // Question 3 - For a given set of string print the largest string
+    public static void largestString(String words[]) {
+        String largest = words[0];
+        for (int i = 1; i < words.length; i++) {
+            if (largest.compareToIgnoreCase(words[i]) < 0) {
+                largest = words[i];
+            }
+        }
+        System.out.println("The largest string is: " + largest);
+    }
+
     public static void main(String[] args) {
         // // Implementation
         // String name = "Vaibhav";
@@ -78,5 +95,11 @@ public class StringQuestions {
         } else {
             System.out.println("str1 is not equal to str2");
         }
+
+        substring(str2, 0, 4);
+        System.out.println("\n" + str2.substring(0, 5));
+
+        String fruits[] = { "apple", "banana", "mango", "Papaya", "pomegrenate", "guava", "watermelon" };
+        largestString(fruits);
     }
 }
