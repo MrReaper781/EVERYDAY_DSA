@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class StringQuestions {
@@ -47,6 +48,37 @@ public class StringQuestions {
             }
         }
         System.out.println("The largest string is: " + largest);
+    }
+
+    // Question 4 - String Compression
+    public static String compress(String str) {
+        StringBuilder stc = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            int count = 1;
+            while (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+                i++;
+            }
+            stc.append(str.charAt(i));
+            if (count > 1) {
+                stc.append(count);
+            }
+        }
+        return stc.toString();
+    }
+
+    // Question 5 - Check Anangram
+    public static boolean checkAnagram(String a, String b) {
+        if (a.length() != b.length()) {
+            return false;
+        }
+        char charArray1[] = a.toCharArray();
+        char charArray2[] = b.toCharArray();
+
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+
+        return Arrays.equals(charArray1, charArray2);
     }
 
     public static void main(String[] args) {
@@ -101,5 +133,12 @@ public class StringQuestions {
 
         String fruits[] = { "apple", "banana", "mango", "Papaya", "pomegrenate", "guava", "watermelon" };
         largestString(fruits);
+
+        String str4 = "abc";
+        System.out.println(compress(str4));
+
+        String str5 = "silent";
+        String str6 = "listen";
+        System.out.println(checkAnagram(str5, str6));
     }
 }
