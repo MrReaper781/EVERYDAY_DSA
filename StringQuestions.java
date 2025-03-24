@@ -72,6 +72,10 @@ public class StringQuestions {
         if (a.length() != b.length()) {
             return false;
         }
+
+        a.toLowerCase();
+        b.toLowerCase();
+
         char charArray1[] = a.toCharArray();
         char charArray2[] = b.toCharArray();
 
