@@ -10,20 +10,29 @@ public class LLUsingCf {
 
     public static void main(String[] args) {
         LinkedList<Integer> ll = new LinkedList<>();
+        // ll.addFirst(3);
+        // ll.addFirst(2);
+        // ll.addFirst(1);
+        // ll.addLast(4);
+        // ll.add(2, 7);
+        // printlist(ll);
+        // ll.removeFirst();
+        // ll.removeLast();
+        // ll.remove(1);
+        // printlist(ll);
+        // // Collections.reverse(ll); // java collections is one of the collection
+        // // framework
+        // reverseList(ll);
+        // printlist(ll);
+
+        ll.addFirst(1);
+        ll.addFirst(2);
         ll.addFirst(3);
         ll.addFirst(2);
         ll.addFirst(1);
-        ll.addLast(4);
-        ll.add(2, 7);
         printlist(ll);
-        ll.removeFirst();
-        ll.removeLast();
-        ll.remove(1);
-        printlist(ll);
-        // Collections.reverse(ll); // java collections is one of the collection
-        // framework
-        reverseList(ll);
-        printlist(ll);
+        boolean ispalindrome = palindrome(ll);
+        System.out.println(ispalindrome);
     }
 
     public static void reverseList(LinkedList<Integer> ll) {
@@ -36,5 +45,18 @@ public class LLUsingCf {
             start++;
             end--;
         }
+    }
+
+    public static boolean palindrome(LinkedList<Integer> ll) {
+        int left = 0;
+        int right = ll.size() - 1;
+        while (left < right) {
+            if (ll.get(left).equals(ll.get(right))) {
+                return true;
+            }
+            left++;
+            right--;
+        }
+        return false;
     }
 }
